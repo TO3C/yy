@@ -1,0 +1,1244 @@
+<!DOCTYPE html> 
+ <html lang="ru"> 
+ <head> 
+     <meta charset="UTF-8"> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>三亚专业导游服务 - 为俄罗斯游客定制</title> 
+     <style> 
+         :root { 
+             --primary: #1a5276; 
+             --secondary: #e74c3c; 
+             --accent: #f39c12; 
+             --light: #f8f9fa; 
+             --dark: #2c3e50; 
+         } 
+         
+         * { 
+             margin: 0; 
+             padding: 0; 
+             box-sizing: border-box; 
+             font-family: 'Arial', sans-serif; 
+         } 
+         
+         body {
+            line-height: 1.6;
+            color: var(--dark);
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+        } 
+         
+         .container { 
+             width: 90%; 
+             max-width: 1200px; 
+             margin: 0 auto; 
+             padding: 0 15px; 
+         } 
+         
+         /* 头部样式 */ 
+        header {
+            background-color: rgba(26, 82, 118, 0.85); /* 使用半透明背景色，而不是重复的背景图片 */
+            color: white;
+            padding: 40px 0 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+         
+         /* 移除header的伪元素，因为我们现在使用直接的背景色 */
+         
+         .logo {
+             font-size: 36px;
+             font-weight: bold;
+             margin-bottom: 15px;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+             letter-spacing: 1px;
+             animation: fadeInDown 1s ease-out;
+         }
+         
+         .tagline {
+             font-size: 20px;
+             margin-bottom: 25px;
+             font-style: italic;
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+             animation: fadeInUp 1s ease-out 0.3s both;
+         }
+         
+         .language-selector {
+             position: absolute;
+             top: 20px;
+             right: 20px;
+             animation: fadeInRight 1s ease-out;
+         }
+         
+         .language-selector select {
+             padding: 8px 15px;
+             border-radius: 20px;
+             border: 2px solid rgba(255, 255, 255, 0.3);
+             background-color: rgba(255, 255, 255, 0.2);
+             color: white;
+             font-size: 14px;
+             font-weight: bold;
+             cursor: pointer;
+             transition: all 0.3s ease;
+         }
+         
+         .language-selector select:hover {
+             background-color: rgba(255, 255, 255, 0.3);
+             border-color: rgba(255, 255, 255, 0.5);
+         }
+         
+         .language-selector select option {
+             background-color: var(--primary);
+             color: white;
+         }
+         
+         /* 导航样式 */
+        nav {
+            background-color: rgba(26, 82, 118, 0.95); /* 统一的半透明蓝色背景 */
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s ease-out 0.6s both;
+        }
+         
+         nav ul {
+             display: flex;
+             justify-content: center;
+             list-style: none;
+             margin: 0;
+             padding: 0;
+         }
+         
+         nav ul li {
+             margin: 0 20px;
+             position: relative;
+         }
+         
+         /* 统一导航项样式 */
+        nav ul li a {
+            color: white;
+            background-color: transparent;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 15px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        /* 首页导航项 */
+        nav ul li:nth-child(1) a:hover {
+            color: white;
+            background-color: #1a5276;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+        }
+        
+        /* 服务导航项 */
+        nav ul li:nth-child(2) a:hover {
+            color: white;
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+        
+        /* 常见问题导航项 */
+        nav ul li:nth-child(3) a:hover {
+            color: white;
+            background-color: #f39c12;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+        }
+        
+        /* 联系我导航项 */
+        nav ul li:nth-child(4) a:hover {
+            color: white;
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+         
+         /* 移除重复的导航链接样式，使用上面统一的样式定义 */
+         
+         /* 动画效果 */
+         @keyframes fadeInDown {
+             from {
+                 opacity: 0;
+                 transform: translateY(-30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+         
+         @keyframes fadeInUp {
+             from {
+                 opacity: 0;
+                 transform: translateY(30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+         
+         @keyframes fadeInRight {
+             from {
+                 opacity: 0;
+                 transform: translateX(30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateX(0);
+             }
+         } 
+         
+         /* 英雄区域样式 */ 
+        .hero {
+            background-color: rgba(44, 62, 80, 0.6); /* 使用半透明背景色，而不是重复的背景图片 */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        } 
+         
+         .hero h1 { 
+             font-size: 42px; 
+             margin-bottom: 20px; 
+         } 
+         
+         .hero p { 
+             font-size: 20px; 
+             margin-bottom: 30px; 
+             max-width: 700px; 
+             margin-left: auto; 
+             margin-right: auto; 
+         } 
+         
+         .cta-button { 
+             display: inline-block; 
+             background-color: var(--secondary); 
+             color: white; 
+             padding: 15px 30px; 
+             border-radius: 5px; 
+             text-decoration: none; 
+             font-weight: bold; 
+             font-size: 18px; 
+             transition: background-color 0.3s; 
+         } 
+         
+         .cta-button:hover { 
+             background-color: #c0392b; 
+         } 
+         
+         /* 服务区域样式 */
+        .services {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.85); /* 使用半透明背景色，而不是重复的背景图片 */
+        } 
+        
+        .section-title { 
+            text-align: center; 
+            margin-bottom: 50px; 
+            font-size: 32px; 
+            color: var(--primary); 
+        } 
+        
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+        } 
+         
+         .service-card {
+             border-radius: 8px;
+             padding: 30px;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+             transition: transform 0.3s;
+             position: relative;
+             color: white;
+             overflow: hidden;
+         }
+         
+         .service-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background-size: cover;
+             background-position: center;
+             z-index: -2;
+         }
+         
+         .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+         
+         .service-card:hover::after {
+             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+         }
+         
+         /* 个性化行程规划 */
+        .service-card:nth-child(1)::before {
+            background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+         
+         /* 交通与接送服务 */
+        .service-card:nth-child(2)::before {
+            background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+         
+         /* 住宿推荐与预订 */
+         .service-card:nth-child(3)::before {
+             background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 美食指南 */
+         .service-card:nth-child(4)::before {
+             background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 水上活动安排 */
+         .service-card:nth-child(5)::before {
+             background-image: url('https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 购物协助 */
+         .service-card:nth-child(6)::before {
+             background-image: url('https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         } 
+         
+         .service-card:hover { 
+             transform: translateY(-10px); 
+         } 
+         
+         .service-icon { 
+            font-size: 40px; 
+            color: white; 
+            margin-bottom: 20px; 
+        } 
+         
+         .service-card h3 { 
+            margin-bottom: 15px; 
+            color: white; 
+        } 
+         
+         /* 痛点解决区域样式 */
+        .pain-points {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.85); /* 使用半透明背景色，而不是重复的背景图片 */
+        } 
+        
+        .pain-points-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+        } 
+         
+         .pain-point-card {
+             border-radius: 8px;
+             padding: 30px;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+             transition: transform 0.3s;
+             position: relative;
+             color: white;
+             overflow: hidden;
+         }
+         
+         .pain-point-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background-size: cover;
+             background-position: center;
+             z-index: -2;
+         }
+         
+         .pain-point-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+         
+         .pain-point-card:hover::after {
+             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+         }
+         
+         .pain-point-card:hover {
+             transform: translateY(-10px);
+         }
+         
+         /* 语言障碍 */
+         .pain-point-card:nth-child(1)::before {
+             background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 不熟悉当地文化 */
+         .pain-point-card:nth-child(2)::before {
+             background-image: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 被宰客风险 */
+         .pain-point-card:nth-child(3)::before {
+             background-image: url('https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 餐饮不适应 */
+         .pain-point-card:nth-child(4)::before {
+             background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         }
+         
+         /* 交通不便 */
+        .pain-point-card:nth-child(5)::before {
+            background-image: url('https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+         
+         /* 紧急情况处理 */
+         .pain-point-card:nth-child(6)::before {
+             background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+         } 
+         
+         .pain-point-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .pain-point-card h3 { 
+            margin-bottom: 15px; 
+            color: white; 
+        } 
+         
+         /* 关于我区域样式 */
+        .about {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.85); /* 使用半透明背景色，而不是重复的背景图片 */
+        } 
+        
+        .about-content { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 40px; 
+            align-items: center; 
+        } 
+         
+         .about-image { 
+             border-radius: 8px; 
+             overflow: hidden; 
+             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+         } 
+         
+         .about-image img { 
+             width: 100%; 
+             height: auto; 
+             display: block; 
+         } 
+         
+         /* 联系方式区域样式 */ 
+        .contact { 
+            padding: 60px 0; 
+            background-color: rgba(26, 82, 118, 0.85); /* 使用半透明背景色，而不是重复的背景图片 */
+            color: white;
+            text-align: center; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact h2 { 
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        } 
+        
+        .contact-subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-methods { 
+            display: flex; 
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex: 1;
+            min-width: 250px;
+        } 
+        
+        .contact-method { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        } 
+        
+        .contact-method:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-method div {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .contact-method h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .contact-method p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .contact-form { 
+            flex: 1;
+            min-width: 250px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .contact-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .contact-methods {
+                justify-content: center;
+            }
+            
+            .contact-method {
+                max-width: 400px;
+            }
+        } 
+        
+        .form-group { 
+            margin-bottom: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        } 
+        
+        .form-icon {
+            font-size: 24px;
+            color: var(--accent);
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .form-group input, 
+        .form-group textarea { 
+            width: 100%; 
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        } 
+        
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+        }
+        
+        .form-group textarea { 
+            height: 180px;
+            resize: vertical;
+        }
+        
+        .form-group input::placeholder, 
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        } 
+         
+         /* 页脚样式 */ 
+         footer { 
+             background-color: var(--dark); 
+             color: white; 
+             padding: 40px 0; 
+             text-align: center; 
+         } 
+         
+         .footer-content { 
+             display: flex; 
+             justify-content: space-between; 
+             flex-wrap: wrap; 
+             margin-bottom: 30px; 
+         } 
+         
+         .footer-section { 
+             flex: 1; 
+             min-width: 250px; 
+             margin-bottom: 20px; 
+         } 
+         
+         .footer-section h3 { 
+             margin-bottom: 20px; 
+             color: var(--accent); 
+         } 
+         
+         .social-links { 
+             display: flex; 
+             justify-content: center; 
+             gap: 15px; 
+         } 
+         
+         .social-links a { 
+             color: white; 
+             font-size: 20px; 
+             text-decoration: none; 
+         } 
+         
+         .copyright { 
+             padding-top: 20px; 
+             border-top: 1px solid rgba(255, 255, 255, 0.1); 
+         } 
+         
+         /* 响应式设计 */ 
+        @media (max-width: 768px) { 
+            /* 全局样式调整 */
+            body {
+                background-attachment: scroll; /* 在移动设备上禁用固定背景，提高性能 */
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
+            }
+            
+            /* 容器宽度调整 */
+            .container {
+                width: 95%;
+            }
+            
+            /* 标题样式调整 */
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+            
+            /* 关于我区域 */
+            .about-content { 
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            } 
+            
+            /* 导航栏 */
+            nav {
+                background-color: rgba(26, 82, 118, 0.95); /* 导航栏背景半透明，避免与内容重叠 */
+                padding: 15px 0;
+            }
+            
+            nav ul { 
+                flex-direction: column; 
+                align-items: center; 
+            } 
+            
+            nav ul li { 
+                margin: 5px 0;
+            }
+            
+            nav ul li a {
+                color: white !important;
+                background-color: transparent !important;
+            }
+            
+            nav ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.2) !important;
+            }
+            
+            /* 英雄区域 */
+            .hero {
+                padding: 60px 0;
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
+            }
+            
+            .hero h1 { 
+                font-size: 32px; 
+            } 
+            
+            .hero p { 
+                font-size: 18px; 
+            } 
+            
+            /* 语言选择器 */
+            .language-selector { 
+                position: static; 
+                margin-top: 10px;
+                z-index: 1001; /* 确保语言选择器在最上层 */
+            } 
+            
+            /* 服务和痛点区域 */
+            .services, .pain-points, .about, .contact {
+                padding: 50px 0;
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
+            }
+            
+            .services-grid, .pain-points-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* 卡片样式 */
+            .service-card, .pain-point-card {
+                padding: 20px;
+            }
+            
+            /* 联系区域 */
+            .contact-content {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .contact-methods {
+                justify-content: center;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .contact-method {
+                max-width: 100%;
+            }
+            
+            .contact-form {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            /* 表单内部元素居中 */
+            .contact-form .form-group {
+                align-items: center;
+            }
+            
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            /* 表单样式 */
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .form-icon {
+                width: auto;
+            }
+            
+            /* 确保所有背景图片元素都从顶部开始显示 */
+            header, .services, .pain-points, .about, .contact {
+                background-position: center top !important;
+            }
+        }
+        
+        /* 小屏幕设备优化 */
+        @media (max-width: 480px) {
+            /* 头部样式 */
+            header {
+                padding: 30px 0 20px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+            
+            /* 英雄区域 */
+            .hero h1 {
+                font-size: 26px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            /* 导航链接 */
+            nav ul li a {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+            
+            /* 按钮样式 */
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        } 
+     </style> 
+ </head> 
+ <body> 
+     <!-- 头部 --> 
+     <header> 
+         <div class="container"> 
+             <div class="language-selector"> 
+                 <select id="language-select"> 
+                     <option value="ru">Русский</option> 
+                     <option value="zh">中文</option> 
+                 </select> 
+             </div> 
+             <div class="logo" data-lang="logo">三亚俄罗斯游客专业服务</div> 
+             <div class="tagline" data-lang="tagline">让您的三亚之旅无忧无虑</div> 
+         </div> 
+     </header> 
+     
+     <!-- 导航 --> 
+     <nav> 
+         <div class="container"> 
+             <ul> 
+                 <li><a href="#home" data-lang="nav-home">首页</a></li> 
+                 <li><a href="#services" data-lang="nav-services">服务</a></li> 
+                 <li><a href="#pain-points" data-lang="nav-pain-points">常见问题</a></li> 
+                 <li><a href="#contact" data-lang="nav-contact">联系我</a></li> 
+             </ul> 
+         </div> 
+     </nav> 
+     
+     <!-- 英雄区域 --> 
+     <section id="home" class="hero"> 
+     </section> 
+     
+     <!-- 服务区域 --> 
+     <section id="services" class="services"> 
+         <div class="container"> 
+             <h2 class="section-title" data-lang="services-title">我的服务</h2> 
+             <div class="services-grid"> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🌴</div> 
+                     <h3 data-lang="service-1-title">个性化行程规划</h3> 
+                     <p data-lang="service-1-desc">根据您的兴趣、预算和时间，为您量身定制三亚旅游行程，避开游客拥挤区域，体验地道风情。</p> 
+                 </div> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🚗</div> 
+                     <h3 data-lang="service-2-title">交通与接送服务</h3> 
+                     <p data-lang="service-2-desc">提供机场接送、景点间交通安排，解决语言不通带来的出行困难。</p> 
+                 </div> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🏨</div> 
+                     <h3 data-lang="service-3-title">住宿推荐与预订</h3> 
+                     <p data-lang="service-3-desc">根据您的需求推荐合适的酒店或度假村，协助您完成预订。</p> 
+                 </div> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🍽️</div> 
+                     <h3 data-lang="service-4-title">美食指南</h3> 
+                     <p data-lang="service-4-desc">带您品尝三亚地道美食，同时推荐符合俄罗斯口味的餐厅。</p> 
+                 </div> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🏄</div> 
+                     <h3 data-lang="service-5-title">水上活动安排</h3> 
+                     <p data-lang="service-5-desc">预订潜水、冲浪、游艇等水上活动，确保安全且价格合理。</p> 
+                 </div> 
+                 <div class="service-card"> 
+                     <div class="service-icon">🛍️</div> 
+                     <h3 data-lang="service-6-title">购物协助</h3> 
+                     <p data-lang="service-6-desc">带您前往正宗特产店，避免旅游陷阱，协助沟通和议价。</p> 
+                 </div> 
+             </div> 
+         </div> 
+     </section> 
+     
+     <!-- 痛点解决区域 --> 
+     <section id="pain-points" class="pain-points"> 
+         <div class="container"> 
+             <h2 class="section-title" data-lang="pain-points-title">解决俄罗斯游客常见问题</h2> 
+             <div class="pain-points-grid"> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">🗣️</div>
+                     <h3 data-lang="pain-1-title">语言障碍</h3> 
+                     <p data-lang="pain-1-desc">大多数三亚当地人不讲俄语或英语，造成沟通困难。我提供全程俄语陪同和翻译服务。</p> 
+                 </div> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">📚</div>
+                     <h3 data-lang="pain-2-title">不熟悉当地文化</h3> 
+                     <p data-lang="pain-2-desc">帮助您了解中国文化和当地习俗，避免文化冲突，更好地融入当地生活。</p> 
+                 </div> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">⚠️</div>
+                     <h3 data-lang="pain-3-title">被宰客风险</h3> 
+                     <p data-lang="pain-3-desc">作为当地人，我知道哪些商家价格公道，帮您避开旅游陷阱，节省开支。</p> 
+                 </div> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">🍽️</div>
+                     <h3 data-lang="pain-4-title">餐饮不适应</h3> 
+                     <p data-lang="pain-4-desc">为您推荐既符合俄罗斯口味又体现当地特色的餐厅，解决饮食适应问题。</p> 
+                 </div> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">🚗</div>
+                     <h3 data-lang="pain-5-title">交通不便</h3> 
+                     <p data-lang="pain-5-desc">协助您使用当地交通系统，或安排私人交通，让您轻松到达各个景点。</p> 
+                 </div> 
+                 <div class="pain-point-card"> 
+                     <div class="pain-point-icon">🆘</div>
+                     <h3 data-lang="pain-6-title">紧急情况处理</h3> 
+                     <p data-lang="pain-6-desc">在您遇到健康问题或其他紧急情况时，提供及时帮助和支持。</p> 
+                 </div> 
+             </div> 
+         </div> 
+     </section> 
+     
+ 
+     
+     <!-- 联系方式区域 --> 
+     <section id="contact" class="contact"> 
+         <div class="container"> 
+             <h2 data-lang="contact-title">立即联系我</h2> 
+            <p class="contact-subtitle" data-lang="contact-subtitle">请随时与我联系，我将为您提供免费咨询服务</p> 
+            
+            <div class="contact-content">
+                <div class="contact-methods"> 
+                    <div class="contact-method"> 
+                        <div>✉️</div> 
+                        <h3 data-lang="contact-email">电子邮件</h3> 
+                        <p><a href="mailto:296077990@qq.com" style="color: white; text-decoration: none;">296077990@qq.com</a></p> 
+                    </div> 
+                </div> 
+            
+                <div class="contact-form"> 
+                    <form id="contactForm" onsubmit="handleFormSubmit(event); return false;"> 
+                        <div class="form-group"> 
+                            <div class="form-icon">👤</div>
+                            <input type="text" name="name" placeholder="您的姓名" data-lang="form-name" required=""> 
+                        </div> 
+                        <div class="form-group"> 
+                            <div class="form-icon">📧</div>
+                            <input type="email" name="email" placeholder="您的电子邮件" data-lang="form-email" required=""> 
+                        </div> 
+                        <div class="form-group"> 
+                            <div class="form-icon">📱</div>
+                            <input type="tel" name="phone" placeholder="您的电话" data-lang="form-phone"> 
+                        </div> 
+                        <div class="form-group"> 
+                            <div class="form-icon">💬</div>
+                            <textarea name="message" placeholder="请描述您的需求，例如：旅行时间、人数、预算等" data-lang="form-message" required=""></textarea> 
+                        </div> 
+                        <button type="submit" class="cta-button" data-lang="form-submit">发送信息</button> 
+                    </form> 
+                </div>
+            </div> 
+         </div> 
+     </section> 
+     
+ 
+     
+     <!-- 添加EmailJS脚本 -->
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+     <script> 
+         // 初始化EmailJS - 使用提供的公钥
+         emailjs.init('SF1gQ4b50a6Q4Z9OX'); // 替换为您的EmailJS公钥
+         
+         // 翻译对象，包含所有需要翻译的文本
+         const translations = {
+             zh: {
+                 logo: '三亚俄罗斯游客专业服务',
+                 tagline: '让您的三亚之旅无忧无虑',
+                 'nav-home': '首页',
+                 'nav-services': '服务',
+                 'nav-pain-points': '常见问题',
+                 'nav-contact': '联系我',
+                 'hero-title': '专业三亚导游服务',
+                 'hero-subtitle': '专为俄罗斯游客定制，解决语言障碍、文化差异和旅游难题，让您享受完美的三亚假期',
+                 'hero-cta': '立即咨询',
+                 'services-title': '我的服务',
+                 'service-1-title': '个性化行程规划',
+                 'service-1-desc': '根据您的兴趣、预算和时间，为您量身定制三亚旅游行程，避开游客拥挤区域，体验地道风情。',
+                 'service-2-title': '交通与接送服务',
+                 'service-2-desc': '提供机场接送、景点间交通安排，解决语言不通带来的出行困难。',
+                 'service-3-title': '住宿推荐与预订',
+                 'service-3-desc': '根据您的需求推荐合适的酒店或度假村，协助您完成预订。',
+                 'service-4-title': '美食指南',
+                 'service-4-desc': '带您品尝三亚地道美食，同时推荐符合俄罗斯口味的餐厅。',
+                 'service-5-title': '水上活动安排',
+                 'service-5-desc': '预订潜水、冲浪、游艇等水上活动，确保安全且价格合理。',
+                 'service-6-title': '购物协助',
+                 'service-6-desc': '带您前往正宗特产店，避免旅游陷阱，协助沟通和议价。',
+                 'pain-points-title': '解决俄罗斯游客常见问题',
+                 'pain-1-title': '语言障碍',
+                 'pain-1-desc': '大多数三亚当地人不讲俄语或英语，造成沟通困难。我提供全程俄语陪同和翻译服务。',
+                 'pain-2-title': '不熟悉当地文化',
+                 'pain-2-desc': '帮助您了解中国文化和当地习俗，避免文化冲突，更好地融入当地生活。',
+                 'pain-3-title': '被宰客风险',
+                 'pain-3-desc': '作为当地人，我知道哪些商家价格公道，帮您避开旅游陷阱，节省开支。',
+                 'pain-4-title': '餐饮不适应',
+                 'pain-4-desc': '为您推荐既符合俄罗斯口味又体现当地特色的餐厅，解决饮食适应问题。',
+                 'pain-5-title': '交通不便',
+                 'pain-5-desc': '协助您使用当地交通系统，或安排私人交通，让您轻松到达各个景点。',
+                 'pain-6-title': '紧急情况处理',
+                 'pain-6-desc': '在您遇到健康问题或其他紧急情况时，提供及时帮助和支持。',
+                 'contact-title': '立即联系我',
+                 'contact-subtitle': '请随时与我联系，我将为您提供免费咨询服务',
+                 'contact-phone': '电话',
+                 'contact-email': '电子邮件',
+                 'contact-wechat': '微信',
+                 'contact-whatsapp': 'WhatsApp',
+                 'form-name': '您的姓名',
+                 'form-email': '您的电子邮件',
+                 'form-phone': '您的电话',
+                 'form-message': '请描述您的需求，例如：旅行时间、人数、预算等',
+                 'form-submit': '发送信息',
+                 'footer-logo': '三亚俄罗斯游客专业服务',
+                 'footer-desc': '为您提供最专业、最贴心的三亚旅游服务',
+                 'footer-links': '快速链接',
+                 'footer-contact': '联系信息',
+                 'footer-phone': '电话: ',
+                 'footer-email': '邮箱: ',
+                 'copyright': '© 2023 三亚俄罗斯游客专业服务. 保留所有权利.'
+             },
+             ru: {
+                 logo: 'Профессиональные туристические услуги в Санья для российских туристов',
+                 tagline: 'Сделаем ваше путешествие в Санья беспроблемным',
+                 'nav-home': 'Главная',
+                 'nav-services': 'Услуги',
+                 'nav-pain-points': 'Часто задаваемые вопросы',
+                 'nav-contact': 'Связаться со мной',
+                 'hero-title': 'Профессиональные туристические услуги в Санья',
+                 'hero-subtitle': 'Специально для российских туристов, решаем языковые барьеры, культурные различия и туристические проблемы, чтобы вы могли насладиться идеальным отпуском в Санья',
+                 'hero-cta': 'Связаться сейчас',
+                 'services-title': 'Мои услуги',
+                 'service-1-title': 'Индивидуальное планирование маршрута',
+                 'service-1-desc': 'Создаем индивидуальный маршрут путешествия по Санья в соответствии с вашими интересами, бюджетом и временем, избегая переполненных туристами мест, чтобы вы могли испытать подлинную атмосферу.',
+                 'service-2-title': 'Транспорт и трансферы',
+                 'service-2-desc': 'Предоставляем трансфер из аэропорта, организацию транспорта между достопримечательностями, решаем проблемы с передвижением из-за языкового барьера.',
+                 'service-3-title': 'Рекомендации и бронирование жилья',
+                 'service-3-desc': 'Рекомендуем подходящие отели или курорты в соответствии с вашими потребностями и помогаем с бронированием.',
+                 'service-4-title': 'Гид по кулинарии',
+                 'service-4-desc': 'Проводим вас по местной кухне Санья, а также рекомендуем рестораны, соответствующие российскому вкусу.',
+                 'service-5-title': 'Организация водных видов спорта',
+                 'service-5-desc': 'Бронируем дайвинг, серфинг, яхтинг и другие водные виды спорта, обеспечивая безопасность и разумные цены.',
+                 'service-6-title': 'Помощь в покупках',
+                 'service-6-desc': 'Проводим вас в正宗特产店, защищаем от туристических ловушек, помогаем с общением и торгами.',
+                 'pain-points-title': 'Решаем частые проблемы российских туристов',
+                 'pain-1-title': 'Языковой барьер',
+                 'pain-1-desc': 'Большинство местных жителей Санья не говорят по-русски или по-английски, что создает проблемы с общением. Я предоставляю полное сопровождение на русском языке и переводческие услуги.',
+                 'pain-2-title': 'Незнакомство с местной культурой',
+                 'pain-2-desc': 'Помогаем вам понять китайскую культуру и местные обычаи, избежать культурных конфликтов и лучше интегрироваться в местную жизнь.',
+                 'pain-3-title': 'Риск быть обманутым',
+                 'pain-3-desc': 'Как местный житель, я знаю, где цены справедливые, помогаю избежать туристических ловушек и сэкономить деньги.',
+                 'pain-4-title': 'Непривычка к кухне',
+                 'pain-4-desc': 'Рекомендуем рестораны, которые соответствуют как российскому вкусу, так и местным особенностям, решаем проблемы с адаптацией к питанию.',
+                 'pain-5-title': 'Недостаточность транспорта',
+                 'pain-5-desc': 'Помогаем вам использовать местную транспортную систему или организуем частный транспорт, чтобы вы могли легко добраться до различных достопримечательностей.',
+                 'pain-6-title': 'Обработка чрезвычайных ситуаций',
+                 'pain-6-desc': 'Предоставляем оперативную помощь и поддержку в случае возникновения проблем со здоровьем или других чрезвычайных ситуаций.',
+                 'contact-title': 'Свяжитесь со мной сейчас',
+                 'contact-subtitle': 'Не стесняйтесь обращаться ко мне в любое время, я предоставлю бесплатную консультацию',
+                 'contact-phone': 'Телефон',
+                 'contact-email': 'Электронная почта',
+                 'contact-wechat': 'WeChat',
+                 'contact-whatsapp': 'WhatsApp',
+                 'form-name': 'Ваше имя',
+                 'form-email': 'Ваш электронный адрес',
+                 'form-phone': 'Ваш телефон',
+                 'form-message': 'Опишите ваши потребности, например: даты поездки, количество человек, бюджет и т.д.',
+                 'form-submit': 'Отправить сообщение',
+                 'footer-logo': 'Профессиональные туристические услуги в Санья для российских туристов',
+                 'footer-desc': 'Предоставляем самые профессиональные и заботливые туристические услуги в Санья',
+                 'footer-links': 'Быстрые ссылки',
+                 'footer-contact': 'Контактная информация',
+                 'footer-phone': 'Телефон: ',
+                 'footer-email': 'Электронная почта: ',
+                 'copyright': '© 2023 Профессиональные туристические услуги в Санья для российских туристов. Все права защищены.'
+             }
+         };
+         
+         // 缓存需要翻译的元素，避免每次切换都重新查询
+         let translatableElements;
+         
+         // 语言切换函数
+         function changeLanguage(lang) {
+             // 如果还没有缓存元素，先查询并缓存
+             if (!translatableElements) {
+                 translatableElements = document.querySelectorAll('[data-lang]');
+             }
+             
+             // 更新所有带有data-lang属性的元素
+             translatableElements.forEach(element => {
+                 const key = element.getAttribute('data-lang');
+                 if (translations[lang][key]) {
+                     // 检查元素类型，处理placeholder属性
+                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                         element.placeholder = translations[lang][key];
+                     } else {
+                         element.textContent = translations[lang][key];
+                     }
+                 }
+             });
+         }
+         
+         // 表单提交处理 - 完整版本，包含EmailJS发送功能
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            console.log('表单提交被阻止，开始处理...');
+            
+            // 获取表单元素
+            const form = e.target;
+            
+            // 获取表单数据
+            const name = form.querySelector('input[name="name"]').value;
+            const email = form.querySelector('input[name="email"]').value;
+            const phone = form.querySelector('input[name="phone"]').value;
+            const message = form.querySelector('textarea[name="message"]').value;
+            
+            // 简单的客户端验证
+            if (!name || !email || !message) {
+                const currentLang = document.getElementById('language-select').value;
+                const errorMessage = currentLang === 'zh' ? '请填写所有必填字段！' : 'Пожалуйста, заполните все обязательные поля!';
+                alert(errorMessage);
+                return;
+            }
+            
+            // 获取提交按钮
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            const currentLang = document.getElementById('language-select').value;
+            const loadingText = currentLang === 'zh' ? '发送中...' : 'Отправка...';
+            
+            // 设置加载状态
+            submitButton.textContent = loadingText;
+            submitButton.disabled = true;
+            
+            try {
+                // 发送邮件 - 使用EmailJS服务
+                await emailjs.send(
+                    'service_qkncsfh', // 使用提供的SMTP服务ID
+                    'template_tmehn5o', // 使用提供的模板ID
+                    {
+                        from_name: name,
+                        from_email: email,
+                        from_phone: phone,
+                        message: message,
+                        to_email: '296077990@qq.com' // 接收邮件的邮箱地址
+                    }
+                );
+                
+                // 显示成功消息
+                const successMessage = currentLang === 'zh' ? '感谢您的咨询！我会尽快回复您。' : 'Спасибо за ваше обращение! Я свяжусь с вами в ближайшее время.';
+                alert(successMessage);
+                
+                // 重置表单
+                form.reset();
+            } catch (error) {
+                console.error('邮件发送失败:', error);
+                
+                // 显示错误消息
+                const errorMessage = currentLang === 'zh' ? '邮件发送失败，请稍后重试！' : 'Не удалось отправить сообщение, пожалуйста, попробуйте позже!';
+                alert(errorMessage);
+            } finally {
+                // 恢复按钮状态
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        }
+         
+         // 语言切换事件处理
+         document.getElementById('language-select').addEventListener('change', function() {
+             // 使用requestAnimationFrame确保切换流畅
+             requestAnimationFrame(() => {
+                 changeLanguage(this.value);
+             });
+         });
+         
+         // 确保DOM完全加载后再执行语言设置
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始加载时设置默认语言为俄语
+            changeLanguage('ru');
+            // 设置语言选择器的默认值为俄语
+            document.getElementById('language-select').value = 'ru';
+        });
+     </script> 
+ </body> 
+ </html>
