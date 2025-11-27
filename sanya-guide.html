@@ -263,7 +263,8 @@
              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
              transition: transform 0.3s;
              position: relative;
-             color: white;
+             color: #00bfff;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
              overflow: hidden;
          }
          
@@ -279,8 +280,17 @@
              z-index: -2;
          }
          
-
-         
+         /* 添加半透明背景遮罩，增强文字可读性 */
+         .service-card::after {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+             z-index: -1;
+         }
          /* 个性化行程规划 */
         .service-card:nth-child(1)::before {
             background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
@@ -344,7 +354,8 @@
              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
              transition: transform 0.3s;
              position: relative;
-             color: white;
+             color: #00bfff;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
              overflow: hidden;
          }
          
@@ -358,6 +369,18 @@
              background-size: cover;
              background-position: center;
              z-index: -2;
+         }
+         
+         /* 添加半透明背景遮罩，增强文字可读性 */
+         .pain-point-card::after {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+             z-index: -1;
          }
          
 
@@ -1110,29 +1133,24 @@
              }
          };
          
-         // 缓存需要翻译的元素，避免每次切换都重新查询
-         let translatableElements;
-         
          // 语言切换函数
-         function changeLanguage(lang) {
-             // 如果还没有缓存元素，先查询并缓存
-             if (!translatableElements) {
-                 translatableElements = document.querySelectorAll('[data-lang]');
-             }
-             
-             // 更新所有带有data-lang属性的元素
-             translatableElements.forEach(element => {
-                 const key = element.getAttribute('data-lang');
-                 if (translations[lang][key]) {
-                     // 检查元素类型，处理placeholder属性
-                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                         element.placeholder = translations[lang][key];
-                     } else {
-                         element.textContent = translations[lang][key];
-                     }
-                 }
-             });
-         }
+        function changeLanguage(lang) {
+            // 每次切换时重新查询所有带有data-lang属性的元素
+            const translatableElements = document.querySelectorAll('[data-lang]');
+            
+            // 更新所有带有data-lang属性的元素
+            translatableElements.forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    // 检查元素类型，处理placeholder属性
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
          
          // 表单提交处理 - 完整版本，包含EmailJS发送功能
         async function handleFormSubmit(e) {
@@ -1200,20 +1218,37 @@
         }
          
          // 语言切换事件处理
-         document.getElementById('language-select').addEventListener('change', function() {
-             // 使用requestAnimationFrame确保切换流畅
-             requestAnimationFrame(() => {
-                 changeLanguage(this.value);
-             });
-         });
-         
-         // 确保DOM完全加载后再执行语言设置
+        // 确保DOM完全加载后再绑定事件监听器
         document.addEventListener('DOMContentLoaded', function() {
+            // 获取语言选择器元素
+            const languageSelect = document.getElementById('language-select');
+            
+            // 检查语言选择器是否存在
+            if (languageSelect) {
+                // 绑定change事件监听器
+                languageSelect.addEventListener('change', function() {
+                    // 直接调用changeLanguage函数
+                    changeLanguage(this.value);
+                });
+            } else {
+                console.error('语言选择器元素未找到');
+            }
+        });
+        
+        // 确保页面完全加载后再执行语言设置
+        window.onload = function() {
+            console.log('页面已完全加载，开始设置默认语言');
             // 初始加载时设置默认语言为俄语
             changeLanguage('ru');
             // 设置语言选择器的默认值为俄语
-            document.getElementById('language-select').value = 'ru';
-        });
+            const languageSelect = document.getElementById('language-select');
+            if (languageSelect) {
+                languageSelect.value = 'ru';
+                console.log('默认语言已设置为俄语');
+            } else {
+                console.error('语言选择器元素未找到');
+            }
+        };
      </script> 
  </body> 
  </html>
