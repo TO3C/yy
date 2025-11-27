@@ -747,6 +747,7 @@
             /* 全局样式调整 */
             body {
                 background-attachment: scroll; /* 在移动设备上禁用固定背景，提高性能 */
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
             }
             
             /* 容器宽度调整 */
@@ -767,18 +768,33 @@
             } 
             
             /* 导航栏 */
+            nav {
+                background-color: rgba(26, 82, 118, 0.95); /* 导航栏背景半透明，避免与内容重叠 */
+                padding: 15px 0;
+            }
+            
             nav ul { 
                 flex-direction: column; 
                 align-items: center; 
             } 
             
             nav ul li { 
-                margin: 5px 0; 
-            } 
+                margin: 5px 0;
+            }
+            
+            nav ul li a {
+                color: white !important;
+                background-color: transparent !important;
+            }
+            
+            nav ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.2) !important;
+            }
             
             /* 英雄区域 */
             .hero {
                 padding: 60px 0;
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
             }
             
             .hero h1 { 
@@ -792,12 +808,14 @@
             /* 语言选择器 */
             .language-selector { 
                 position: static; 
-                margin-top: 10px; 
+                margin-top: 10px;
+                z-index: 1001; /* 确保语言选择器在最上层 */
             } 
             
             /* 服务和痛点区域 */
             .services, .pain-points, .about, .contact {
                 padding: 50px 0;
+                background-position: center top; /* 确保背景图片从顶部开始显示 */
             }
             
             .services-grid, .pain-points-grid {
@@ -813,11 +831,22 @@
             /* 联系区域 */
             .contact-content {
                 flex-direction: column;
-                gap: 20px;
+                gap: 30px;
+                align-items: center;
             }
             
             .contact-methods {
                 justify-content: center;
+                width: 100%;
+            }
+            
+            .contact-method {
+                max-width: 100%;
+            }
+            
+            .contact-form {
+                width: 100%;
+                max-width: 100%;
             }
             
             /* 表单样式 */
@@ -829,6 +858,11 @@
             
             .form-icon {
                 width: auto;
+            }
+            
+            /* 确保所有背景图片元素都从顶部开始显示 */
+            header, .services, .pain-points, .about, .contact {
+                background-position: center top !important;
             }
         }
         
