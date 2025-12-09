@@ -988,7 +988,12 @@
      
  
      
-     <script> 
+     <!-- 添加EmailJS脚本 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script> 
+        // 初始化EmailJS - 使用提供的公钥
+        emailjs.init('SF1gQ4b50a6Q4Z9OX'); // 替换为您的EmailJS公钥
+        
         // 翻译对象，包含所有需要翻译的文本
          const translations = {
              zh: {
@@ -1127,8 +1132,8 @@
              });
          }
          
-         // 表单提交处理 - 简化版本，不依赖外部库
-        function handleFormSubmit(e) {
+         // 表单提交处理 - 完整版本，包含EmailJS发送功能
+        async function handleFormSubmit(e) {
             e.preventDefault();
             console.log('表单提交被阻止，开始处理...');
             
@@ -1159,26 +1164,31 @@
             submitButton.textContent = loadingText;
             submitButton.disabled = true;
             
-            // 准备邮件链接
-            const subject = encodeURIComponent('来自网站的咨询 - ' + name);
-            const body = encodeURIComponent('姓名: ' + name + '\n邮箱: ' + email + '\n电话: ' + phone + '\n\n留言内容:\n' + message);
-            const mailtoLink = 'mailto:296077990@qq.com?subject=' + subject + '&body=' + body;
-            
             try {
-                // 尝试使用mailto链接打开邮件客户端
-                window.location.href = mailtoLink;
+                // 发送邮件 - 使用EmailJS服务
+                await emailjs.send(
+                    'service_qkncsfh', // 使用提供的SMTP服务ID
+                    'template_tmehn5o', // 使用提供的模板ID
+                    {
+                        from_name: name,
+                        from_email: email,
+                        from_phone: phone,
+                        message: message,
+                        to_email: '296077990@qq.com' // 接收邮件的邮箱地址
+                    }
+                );
                 
                 // 显示成功消息
-                const successMessage = currentLang === 'zh' ? '感谢您的咨询！请在打开的邮件客户端中发送您的咨询。' : 'Спасибо за ваше обращение! Пожалуйста, отправьте ваше сообщение в открытом почтовом клиенте.';
+                const successMessage = currentLang === 'zh' ? '感谢您的咨询！我会尽快回复您。' : 'Спасибо за ваше обращение! Я свяжусь с вами в ближайшее время.';
                 alert(successMessage);
                 
                 // 重置表单
                 form.reset();
             } catch (error) {
-                console.error('邮件客户端打开失败:', error);
+                console.error('邮件发送失败:', error);
                 
                 // 显示错误消息
-                const errorMessage = currentLang === 'zh' ? '无法打开邮件客户端，请直接发送邮件至296077990@qq.com！' : 'Не удалось открыть почтовый клиент, пожалуйста, отправьте письмо напрямую на 296077990@qq.com!';
+                const errorMessage = currentLang === 'zh' ? '邮件发送失败，请稍后重试！' : 'Не удалось отправить сообщение, пожалуйста, попробуйте позже!';
                 alert(errorMessage);
             } finally {
                 // 恢复按钮状态
