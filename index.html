@@ -23,102 +23,101 @@
          body {
             line-height: 1.6;
             color: var(--dark);
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center top fixed;
             background-size: cover;
+            background-position: center 0px;
         } 
-         
-         .container { 
-             width: 90%; 
-             max-width: 1200px; 
-             margin: 0 auto; 
-             padding: 0 15px; 
-         } 
-         
-         /* 头部样式 */ 
+        
+        .container { 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 15px; 
+        } 
+        
+        /* 头部样式 */ 
         header {
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-            background-size: cover;
+            background: transparent;
             color: white;
             padding: 40px 0 30px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
             position: relative;
         }
-         
-         /* 移除header的伪元素，因为我们现在使用直接的背景色 */
-         
-         .logo {
-             font-size: 36px;
-             font-weight: bold;
-             margin-bottom: 15px;
-             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-             letter-spacing: 1px;
-             animation: fadeInDown 1s ease-out;
-         }
-         
-         .tagline {
-             font-size: 20px;
-             margin-bottom: 25px;
-             font-style: italic;
-             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-             animation: fadeInUp 1s ease-out 0.3s both;
-         }
-         
-         .language-selector {
-             position: absolute;
-             top: 20px;
-             right: 20px;
-             animation: fadeInRight 1s ease-out;
-         }
-         
-         .language-selector select {
-             padding: 8px 15px;
-             border-radius: 20px;
-             border: 2px solid rgba(255, 255, 255, 0.3);
-             background-color: rgba(255, 255, 255, 0.2);
-             color: white;
-             font-size: 14px;
-             font-weight: bold;
-             cursor: pointer;
-             transition: all 0.3s ease;
-         }
-         
-         .language-selector select:hover {
-             background-color: rgba(255, 255, 255, 0.3);
-             border-color: rgba(255, 255, 255, 0.5);
-         }
-         
-         .language-selector select option {
-             background-color: var(--primary);
-             color: white;
-         }
-         
-         /* 导航样式 */
+        
+        /* 移除header的伪元素，因为我们现在使用直接的背景色 */
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        .language-selector select {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector select:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .language-selector select option {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* 导航样式 */
         nav {
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-            background-size: cover;
+            background: transparent;
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
             position: sticky;
             top: 0;
             z-index: 1000;
             animation: fadeInDown 1s ease-out 0.6s both;
         }
-         
-         nav ul {
-             display: flex;
-             justify-content: center;
-             list-style: none;
-             margin: 0;
-             padding: 0;
-         }
-         
-         nav ul li {
-             margin: 0 20px;
-             position: relative;
-         }
-         
-         /* 统一导航项样式 */
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        /* 统一导航项样式 */
         nav ul li a {
             color: white;
             background-color: transparent;
@@ -162,47 +161,46 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
         }
-         
-         /* 移除重复的导航链接样式，使用上面统一的样式定义 */
-         
-         /* 动画效果 */
-         @keyframes fadeInDown {
-             from {
-                 opacity: 0;
-                 transform: translateY(-30px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
-         
-         @keyframes fadeInUp {
-             from {
-                 opacity: 0;
-                 transform: translateY(30px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
-         
-         @keyframes fadeInRight {
-             from {
-                 opacity: 0;
-                 transform: translateX(30px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateX(0);
-             }
-         } 
-         
-         /* 英雄区域样式 */ 
+        
+        /* 移除重复的导航链接样式，使用上面统一的样式定义 */
+        
+        /* 动画效果 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        } 
+        
+        /* 英雄区域样式 */ 
         .hero {
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-            background-size: cover;
+            background: transparent;
             color: white;
             padding: 100px 0;
             text-align: center;
@@ -687,7 +685,7 @@
             
             /* 导航栏 */
             nav {
-                background-color: rgba(26, 82, 118, 0.95); /* 导航栏背景半透明，避免与内容重叠 */
+                background: transparent;
                 padding: 15px 0;
             }
             
@@ -990,13 +988,8 @@
      
  
      
-     <!-- 添加EmailJS脚本 -->
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
      <script> 
-         // 初始化EmailJS - 使用提供的公钥
-         emailjs.init('SF1gQ4b50a6Q4Z9OX'); // 替换为您的EmailJS公钥
-         
-         // 翻译对象，包含所有需要翻译的文本
+        // 翻译对象，包含所有需要翻译的文本
          const translations = {
              zh: {
                  logo: '三亚俄罗斯游客专业服务',
@@ -1134,8 +1127,8 @@
              });
          }
          
-         // 表单提交处理 - 完整版本，包含EmailJS发送功能
-        async function handleFormSubmit(e) {
+         // 表单提交处理 - 简化版本，不依赖外部库
+        function handleFormSubmit(e) {
             e.preventDefault();
             console.log('表单提交被阻止，开始处理...');
             
@@ -1166,31 +1159,26 @@
             submitButton.textContent = loadingText;
             submitButton.disabled = true;
             
+            // 准备邮件链接
+            const subject = encodeURIComponent('来自网站的咨询 - ' + name);
+            const body = encodeURIComponent('姓名: ' + name + '\n邮箱: ' + email + '\n电话: ' + phone + '\n\n留言内容:\n' + message);
+            const mailtoLink = 'mailto:296077990@qq.com?subject=' + subject + '&body=' + body;
+            
             try {
-                // 发送邮件 - 使用EmailJS服务
-                await emailjs.send(
-                    'service_qkncsfh', // 使用提供的SMTP服务ID
-                    'template_tmehn5o', // 使用提供的模板ID
-                    {
-                        from_name: name,
-                        from_email: email,
-                        from_phone: phone,
-                        message: message,
-                        to_email: '296077990@qq.com' // 接收邮件的邮箱地址
-                    }
-                );
+                // 尝试使用mailto链接打开邮件客户端
+                window.location.href = mailtoLink;
                 
                 // 显示成功消息
-                const successMessage = currentLang === 'zh' ? '感谢您的咨询！我会尽快回复您。' : 'Спасибо за ваше обращение! Я свяжусь с вами в ближайшее время.';
+                const successMessage = currentLang === 'zh' ? '感谢您的咨询！请在打开的邮件客户端中发送您的咨询。' : 'Спасибо за ваше обращение! Пожалуйста, отправьте ваше сообщение в открытом почтовом клиенте.';
                 alert(successMessage);
                 
                 // 重置表单
                 form.reset();
             } catch (error) {
-                console.error('邮件发送失败:', error);
+                console.error('邮件客户端打开失败:', error);
                 
                 // 显示错误消息
-                const errorMessage = currentLang === 'zh' ? '邮件发送失败，请稍后重试！' : 'Не удалось отправить сообщение, пожалуйста, попробуйте позже!';
+                const errorMessage = currentLang === 'zh' ? '无法打开邮件客户端，请直接发送邮件至296077990@qq.com！' : 'Не удалось открыть почтовый клиент, пожалуйста, отправьте письмо напрямую на 296077990@qq.com!';
                 alert(errorMessage);
             } finally {
                 // 恢复按钮状态
