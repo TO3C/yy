@@ -1164,8 +1164,12 @@
             submitButton.textContent = loadingText;
             submitButton.disabled = true;
             
+            // 确保语言已正确设置
+            console.log('当前语言:', currentLang);
+            
             try {
                 console.log('开始发送邮件...');
+                console.log('当前页面URL:', window.location.href);
                 console.log('EmailJS配置:', {
                     service_id: 'service_qkncsfh',
                     template_id: 'template_tmehn5o',
@@ -1197,6 +1201,7 @@
             } catch (error) {
                 console.error('邮件发送失败:', error);
                 console.error('错误详情:', error.text || error.message || error);
+                console.error('错误完整信息:', error);
                 
                 // 显示错误消息
                 const errorMessage = currentLang === 'zh' ? `邮件发送失败: ${error.text || '未知错误'}，请稍后重试！` : `Не удалось отправить сообщение: ${error.text || 'неизвестная ошибка'}, пожалуйста, попробуйте позже!`;
@@ -1221,6 +1226,13 @@
             // 初始加载时设置默认语言为俄语
             changeLanguage('ru');
             // 设置语言选择器的默认值为俄语
+            document.getElementById('language-select').value = 'ru';
+        });
+        
+        // 页面加载时立即设置默认语言为俄语，确保优先展示俄语版
+        window.addEventListener('load', function() {
+            console.log('页面已完全加载，设置默认语言为俄语');
+            changeLanguage('ru');
             document.getElementById('language-select').value = 'ru';
         });
      </script> 
