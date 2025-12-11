@@ -1165,8 +1165,16 @@
             submitButton.disabled = true;
             
             try {
+                console.log('开始发送邮件...');
+                console.log('EmailJS配置:', {
+                    service_id: 'service_qkncsfh',
+                    template_id: 'template_tmehn5o',
+                    public_key: 'SF1gQ4b50a6Q4Z9OX',
+                    to_email: '296077990@qq.com'
+                });
+                
                 // 发送邮件 - 使用EmailJS服务
-                await emailjs.send(
+                const result = await emailjs.send(
                     'service_qkncsfh', // 使用提供的SMTP服务ID
                     'template_tmehn5o', // 使用提供的模板ID
                     {
@@ -1178,6 +1186,8 @@
                     }
                 );
                 
+                console.log('邮件发送成功:', result);
+                
                 // 显示成功消息
                 const successMessage = currentLang === 'zh' ? '感谢您的咨询！我会尽快回复您。' : 'Спасибо за ваше обращение! Я свяжусь с вами в ближайшее время.';
                 alert(successMessage);
@@ -1186,9 +1196,10 @@
                 form.reset();
             } catch (error) {
                 console.error('邮件发送失败:', error);
+                console.error('错误详情:', error.text || error.message || error);
                 
                 // 显示错误消息
-                const errorMessage = currentLang === 'zh' ? '邮件发送失败，请稍后重试！' : 'Не удалось отправить сообщение, пожалуйста, попробуйте позже!';
+                const errorMessage = currentLang === 'zh' ? `邮件发送失败: ${error.text || '未知错误'}，请稍后重试！` : `Не удалось отправить сообщение: ${error.text || 'неизвестная ошибка'}, пожалуйста, попробуйте позже!`;
                 alert(errorMessage);
             } finally {
                 // 恢复按钮状态
