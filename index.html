@@ -200,9 +200,10 @@
         
         /* 英雄区域样式 */ 
         .hero {
-            background: transparent;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+            background-size: cover;
             color: white;
-            padding: 100px 0;
+            padding: 50px 0 150px;
             text-align: center;
             position: relative;
         } 
@@ -709,8 +710,9 @@
             
             /* 英雄区域 */
             .hero {
-                padding: 60px 0;
+                padding: 100px 0;
                 background-position: center top; /* 确保背景图片从顶部开始显示 */
+                background-attachment: scroll; /* 在移动设备上禁用固定背景，提高性能 */
             }
             
             .hero h1 { 
@@ -836,35 +838,34 @@
      </style> 
  </head> 
  <body> 
-     <!-- 头部 --> 
-     <header> 
-         <div class="container"> 
-             <div class="language-selector"> 
-                 <select id="language-select"> 
-                     <option value="ru">Русский</option> 
-                     <option value="zh">中文</option> 
-                 </select> 
-             </div> 
-             <div class="logo" data-lang="logo">三亚俄罗斯游客专业服务</div> 
-             <div class="tagline" data-lang="tagline">让您的三亚之旅无忧无虑</div> 
-         </div> 
-     </header> 
-     
-     <!-- 导航 --> 
-     <nav> 
-         <div class="container"> 
-             <ul> 
-                 <li><a href="#home" data-lang="nav-home">首页</a></li> 
-                 <li><a href="#services" data-lang="nav-services">服务</a></li> 
-                 <li><a href="#pain-points" data-lang="nav-pain-points">常见问题</a></li> 
-                 <li><a href="#contact" data-lang="nav-contact">联系我</a></li> 
-             </ul> 
-         </div> 
-     </nav> 
-     
      <!-- 英雄区域 --> 
-     <section id="home" class="hero"> 
-     </section> 
+    <section id="home" class="hero"> 
+        <!-- 头部 --> 
+        <header> 
+            <div class="container"> 
+                <div class="language-selector"> 
+                    <select id="language-select"> 
+                        <option value="ru">Русский</option> 
+                        <option value="zh">中文</option> 
+                    </select> 
+                </div> 
+                <div class="logo" data-lang="logo">三亚俄罗斯游客专业服务</div> 
+                <div class="tagline" data-lang="tagline">让您的三亚之旅无忧无虑</div> 
+            </div> 
+        </header> 
+        
+        <!-- 导航 --> 
+        <nav> 
+            <div class="container"> 
+                <ul> 
+                    <li><a href="#home" data-lang="nav-home">首页</a></li> 
+                    <li><a href="#services" data-lang="nav-services">服务</a></li> 
+                    <li><a href="#pain-points" data-lang="nav-pain-points">常见问题</a></li> 
+                    <li><a href="#contact" data-lang="nav-contact">联系我</a></li> 
+                </ul> 
+            </div> 
+        </nav> 
+    </section> 
      
      <!-- 服务区域 --> 
      <section id="services" class="services"> 
